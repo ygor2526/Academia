@@ -74,6 +74,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.02;
   letter-spacing: -0.03em;
   max-width: 14ch;
+  margin-top: -30px;
 }
 
 .hero-texto p {
@@ -234,4 +235,23 @@ legend { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.5rem; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
+}
+
+.foto-hero {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  margin-top: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.vantagens {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+  color:black
 }
