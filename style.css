@@ -1,0 +1,237 @@
+:root {
+  --verde-floresta: #0f3d2a;
+  --verde-medio: #1f7a4d;
+  --verde-vivo: #3fbf74;
+  --verde-menta: #e4f4ea;
+  --branco: #fbfefc;
+  --texto: #12261c;
+  --erro: #b3261e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Figtree", system-ui, sans-serif;
+  color: var(--texto);
+  background: var(--verde-menta);
+  line-height: 1.55;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 3px solid var(--verde-vivo);
+  outline-offset: 2px;
+}
+
+/* Topo */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+  background: var(--verde-floresta);
+  color: var(--branco);
+}
+
+.logo {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.topo nav { display: flex; align-items: center; gap: 1.5rem; }
+.topo nav a:hover { color: var(--verde-vivo); }
+
+.btn-menu {
+  background: var(--verde-vivo);
+  color: var(--verde-floresta);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.topo nav .btn-menu:hover { color: var(--verde-floresta); background: #5fd18d; }
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 480px);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(180deg, var(--verde-floresta) 0, var(--verde-floresta) 55%, var(--verde-menta) 55%);
+}
+
+.hero-texto { color: var(--branco); padding-top: 1rem; }
+
+.hero-texto h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+
+.hero-texto p {
+  margin-top: 1.25rem;
+  max-width: 46ch;
+  font-size: 1.1rem;
+  color: #cfe9d9;
+}
+
+.vantagens { list-style: none; margin-top: 1.75rem; display: grid; gap: 0.6rem; }
+.vantagens li { padding-left: 1.8rem; position: relative; }
+.vantagens li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: var(--verde-vivo);
+  box-shadow: inset 0 0 0 4px var(--verde-floresta), 0 0 0 2px var(--verde-vivo);
+}
+
+/* Formulário */
+.cadastro {
+  background: var(--branco);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: 0 20px 50px rgba(15, 61, 42, 0.25);
+}
+
+.cadastro h2 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  color: var(--verde-floresta);
+}
+
+.campo { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; flex: 1; }
+.linha { display: flex; gap: 1rem; }
+
+label { font-weight: 600; font-size: 0.92rem; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+  color: var(--texto);
+  background: #fff;
+  border: 1.5px solid #b9d5c5;
+  border-radius: 10px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--verde-medio);
+  box-shadow: 0 0 0 3px rgba(63, 191, 116, 0.35);
+}
+
+/* Planos */
+fieldset {
+  border: none;
+  margin: 0.5rem 0 1.25rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+legend { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.5rem; }
+
+.plano { cursor: pointer; display: block; }
+.plano input { position: absolute; opacity: 0; pointer-events: none; }
+
+.plano-corpo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "nome preco" "nota preco";
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #b9d5c5;
+  border-radius: 12px;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.plano-corpo strong { grid-area: nome; font-weight: 600; }
+.plano-corpo small { grid-area: nota; color: #4f6b5c; }
+.plano-corpo em {
+  grid-area: preco;
+  font-style: normal;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--verde-medio);
+}
+.plano-corpo em span { font-family: "Figtree", sans-serif; font-weight: 400; font-size: 0.85rem; color: #4f6b5c; }
+
+.plano:hover .plano-corpo { border-color: var(--verde-vivo); }
+
+.plano input:checked + .plano-corpo {
+  border-color: var(--verde-medio);
+  background: var(--verde-menta);
+  box-shadow: inset 0 0 0 1.5px var(--verde-medio);
+}
+
+.plano input:focus-visible + .plano-corpo {
+  outline: 3px solid var(--verde-vivo);
+  outline-offset: 2px;
+}
+
+/* Aceite e botão */
+.aceite { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 400; font-size: 0.9rem; margin-bottom: 1.25rem; }
+.aceite input { margin-top: 0.25rem; accent-color: var(--verde-medio); width: 1.05rem; height: 1.05rem; }
+
+.btn-principal {
+  width: 100%;
+  padding: 0.95rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+  background: var(--verde-medio);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-principal:hover { background: var(--verde-floresta); }
+.btn-principal:active { transform: scale(0.99); }
+
+.mensagem { margin-top: 0.9rem; font-size: 0.95rem; min-height: 1.4em; }
+.mensagem.ok { color: var(--verde-medio); font-weight: 600; }
+.mensagem.erro { color: var(--erro); font-weight: 600; }
+
+/* Rodapé */
+.rodape {
+  text-align: center;
+  padding: 2rem 1.25rem;
+  background: var(--verde-floresta);
+  color: #cfe9d9;
+  font-size: 0.92rem;
+}
+
+/* Responsivo */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; background: var(--verde-floresta); }
+  .hero-texto h1 { max-width: none; }
+  .topo nav a:not(.btn-menu) { display: none; }
+}
+
+@media (max-width: 480px) {
+  .linha { flex-direction: column; gap: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
